@@ -1,4 +1,4 @@
-#Super Cold
+# Super Cold
 
 Avez-vous déjà rêvé d’être un électron? Non? Jamais? Eh bien accrochez-vous, car vous allez être propulsé dans une expérience dont vous ressortirez changés. Dans Super Cold, vivez un électron voyageant dans un conducteur. Évitez les noyaux d’atome pour refroidir le conducteur. Si vous parvenez à rester dans le rythme, vous le conducteur devient supraconducteur et vous entrez en mode SUPER COLD. Dans ce mode, plus rien ne vous arrête, mais vous devrez faire preuve d’une grande concentration pour y rester. En mode SUPER COLD, l’effet du quantum lock entre en compte (rapidement expliqué: https://youtu.be/qDmjoaLp_Pw, ou en détail avec exemples: https://youtu.be/8GY4m022tgo). Le conducteur reste aligné sur un champ magnétique externe. Pour que l’électron reste sur le conducteur, vous devrez réussir à suivre les variations du champ magnétique.
 
