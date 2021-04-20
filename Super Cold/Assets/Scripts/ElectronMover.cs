@@ -6,7 +6,7 @@ public class ElectronMover : MonoBehaviour
 {
 
     public float electronAcceleration = 200f;
-    public float electronJumpPower = 300f;
+    public float electronJumpPower = 2.5f;
     private Rigidbody rb;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class ElectronMover : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            rb.velocity += Vector3.up * Time.deltaTime * electronJumpPower;
+            rb.velocity += Vector3.up * electronJumpPower;
         }
     }
 }
