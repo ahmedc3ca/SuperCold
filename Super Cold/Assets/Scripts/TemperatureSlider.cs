@@ -10,14 +10,14 @@ public class TemperatureSlider : MonoBehaviour
 
     public Image fill;
 
-    public void SetMaxTemperature(int temperature){
+    public void SetMaxTemperature(float temperature){
         slider.maxValue = temperature;
         slider.value = temperature;
 
         fill.color = gradient.Evaluate(0f);
     }
 
-    public void SetTemperature(int temperature){
+    public void SetTemperature(float temperature){
         slider.value = temperature;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }

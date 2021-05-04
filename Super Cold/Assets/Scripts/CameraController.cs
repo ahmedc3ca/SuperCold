@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 temp = new Vector3(this.transform.position.x,this.transform.position.y,electron.transform.position.z - distanceFromElectron);
+        Vector3 temp = new Vector3(this.transform.position.x, electron.transform.position.y + cameraHeight, electron.transform.position.z - distanceFromElectron);
         this.transform.position = temp;
     }
 }
