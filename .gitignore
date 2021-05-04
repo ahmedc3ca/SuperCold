@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Blender history files
+*.blend1
+
 # Visual Studio cache directory
 .vs/
 
