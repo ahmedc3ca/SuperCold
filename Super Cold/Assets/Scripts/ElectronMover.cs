@@ -11,7 +11,7 @@ public class ElectronMover : MonoBehaviour
     private Rigidbody rb;
     public float electronVelocity = 50f;
     public float electronJumpPower = 30f;
-    private bool isJumping = false;
+    private bool isGrounded = false;
     public float jumpDrag = 0f;
 
     //Temperature Logic
@@ -40,6 +40,7 @@ public class ElectronMover : MonoBehaviour
 
         isShowingCanvas = true;
         Physics.gravity = new Vector3(0, -100, 0);
+        isGrounded = true;
 
     }
 
@@ -66,7 +67,7 @@ public class ElectronMover : MonoBehaviour
             return;
         }
         //Move electron depending on input
-        if (Input.GetKeyDown("space") && !isSuperCold && !isJumping)
+        if (Input.GetKeyDown("space") && !isSuperCold && isGrounded)
         {
             Jump();
         }
@@ -157,7 +158,6 @@ public class ElectronMover : MonoBehaviour
 
     private void Jump()
     {
-        isJumping = true;
         rb.drag = jumpDrag;
         rb.useGravity = true;
         rb.velocity += Vector3.up * electronJumpPower;
@@ -171,7 +171,6 @@ public class ElectronMover : MonoBehaviour
         rb.useGravity = false;
         rb.drag = 0f;
         rb.velocity = Vector3.forward * electronVelocity;
-        isJumping = false;
     }
 
 
@@ -179,6 +178,17 @@ public class ElectronMover : MonoBehaviour
         if(other.gameObject.tag == "obstacle"){
             ResetElectron(other);
 
+        }else if(other.gameObject.tag == "floor")
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "floor")
+        {
+            isGrounded = false;
         }
     }
 
