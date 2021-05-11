@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ElectronMover : MonoBehaviour
 {
+    //Audio
+    public GameObject camera;
+
     //Electron Physics
     private Rigidbody rb;
-    public float electronAcceleration = 300f;
-    public float electronJumpPower = 10f;
+    public float electronVelocity = 50f;
+    public float electronJumpPower = 30f;
+    private bool isJumping = false;
+    public float jumpDrag = 0f;
 
     //Temperature Logic
     public float MaxTemperature = 100;
@@ -24,16 +29,30 @@ public class ElectronMover : MonoBehaviour
     public bool isSuperCold = false;
     public bool hasLost = false;
 
+    //Menus Logic
+    public bool isShowingCanvas = true;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.forward * Time.deltaTime * electronAcceleration;
+
     }
 
     private void Start() {
 
+        isShowingCanvas = true;
+        Physics.gravity = new Vector3(0, -100, 0);
+
+    }
+
+    public void StartGame()
+    {
+
+        camera.GetComponent<AudioSource>().Play();
+        isShowingCanvas = false;
+        rb = GetComponent<Rigidbody>();
+        rb.velocity = Vector3.forward * electronVelocity;
+        rb.drag = 0f;
         //Initialize temperature logic
-        currentTemperature = 0;
+        currentTemperature = 20;
         temperatureSlider.SetMaxTemperature(MaxTemperature);
         temperatureSlider.SetTemperature(0);
         StartCoroutine("IncrementTemperature");
@@ -41,8 +60,13 @@ public class ElectronMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isShowingCanvas)
+        {
+
+            return;
+        }
         //Move electron depending on input
-        if (Input.GetKeyDown("space") && !isSuperCold)
+        if (Input.GetKeyDown("space") && !isSuperCold && !isJumping)
         {
             Jump();
         }
@@ -111,7 +135,7 @@ public class ElectronMover : MonoBehaviour
 
     IEnumerator IncrementTemperature() {
         for(;;) {
-            currentTemperature += 0.4f;
+            currentTemperature += 0.1f;
             yield return new WaitForSeconds(.02f);
         }
     }
@@ -133,19 +157,34 @@ public class ElectronMover : MonoBehaviour
 
     private void Jump()
     {
+        isJumping = true;
+        rb.drag = jumpDrag;
+        rb.useGravity = true;
         rb.velocity += Vector3.up * electronJumpPower;
+        StartCoroutine("StopGravity");
+
     }
+
+    IEnumerator StopGravity()
+    {
+        yield return new WaitForSeconds(0.6f);
+        rb.useGravity = false;
+        rb.drag = 0f;
+        rb.velocity = Vector3.forward * electronVelocity;
+        isJumping = false;
+    }
+
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "obstacle"){
-            ResetElectron();
-            //rb.velocity = Vector3.forward * Time.deltaTime * electronAcceleration;
-            currentTemperature = Math.Max(0, currentTemperature - 20);
+            ResetElectron(other);
+
         }
     }
 
-    private void ResetElectron(){
-            this.transform.position = GameObject.Find("spawnPoint").transform.position;
-            rb.velocity = Vector3.forward * Time.deltaTime * electronAcceleration;
+    private void ResetElectron(Collision other){
+            this.transform.position = other.gameObject.transform.position + Vector3.forward * 1.5f;
+            rb.velocity = Vector3.forward * electronVelocity;
+            currentTemperature = Math.Max(0, currentTemperature - 10);
     }
 }
