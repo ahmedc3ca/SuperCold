@@ -14,7 +14,7 @@ def main():
         fields = line.split(sep='\t')
         timestamp = fields[0] # eg. 97.523810
         direction = fields[2].strip() # .strip to remove \n. can be 1 or -1
-        out += '({}, {})'.format(timestamp, direction)
+        out += 'new Vector2({}f, {}f)'.format(timestamp, direction)
 
         if i < len(lines)-1: # if not last line
             out += ', '
