@@ -294,8 +294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025634766, y: 0}
-  m_SizeDelta: {x: 1782.5, y: 1035}
+  m_AnchoredPosition: {x: -1.8695, y: -1.8722}
+  m_SizeDelta: {x: 2294.2195, y: 1003.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207008696
 MonoBehaviour:
@@ -369,8 +369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1167.5261, y: 448.1768}
+  m_AnchoredPosition: {x: 12.481, y: 106.0881}
+  m_SizeDelta: {x: 1623.0808, y: 660.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244357159
 MonoBehaviour:
@@ -394,7 +394,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 72
+    m_FontSize: 49
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -405,8 +405,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Lorsque vous r\xE9ussissez \xE0 \xE9viter un \xE9lectron, la temp\xE9rature
-    baisse et la conductivit\xE9 \xE9lectrique augmente (l'\xE9lectron acc\xE9l\xE8re!)."
+  m_Text: "Lorsque la temp\xE9rature descend sous la temp\xE9rature critique du mat\xE9riau,
+    il devient supraconducteur!\r\n\r\n\r\nDans un supraconducteur, la r\xE9sistance
+    \xE9lectrique est nulle."
 --- !u!222 &244357160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -449,8 +450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1167.5261, y: 448.1768}
+  m_AnchoredPosition: {x: 12.481, y: 106.0881}
+  m_SizeDelta: {x: 1623.0808, y: 660.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248743331
 MonoBehaviour:
@@ -474,7 +475,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 79
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -485,8 +486,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Votre but est d'\xE9viter des noyaux d'atomes. Vous devez alors appuyer
-    sur espace pour sauter en dessus des noyaux."
+  m_Text: "La r\xE9sistance \xE9lectrique d\xE9signe la difficult\xE9 qu'ont les
+    \xE9lectrons \xE0 se d\xE9placer dans un conducteur.\r\n\r\n\r\nDans les m\xE9taux,
+    la r\xE9sistance d\xE9pend de la temp\xE9rature: plus la temp\xE9rature est basse,
+    plus la r\xE9sistance diminue."
 --- !u!222 &248743332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -530,8 +533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025634766, y: 0}
-  m_SizeDelta: {x: 1782.5, y: 1035}
+  m_AnchoredPosition: {x: -1.8695, y: -1.8722}
+  m_SizeDelta: {x: 2294.2195, y: 1003.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387186535
 MonoBehaviour:
@@ -1529,8 +1532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1167.5261, y: 448.1768}
+  m_AnchoredPosition: {x: 12.4809, y: 106.0881}
+  m_SizeDelta: {x: 1623.0808, y: 660.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912216087
 MonoBehaviour:
@@ -1554,7 +1557,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 79
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1565,8 +1568,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bienvenue dans Super Cold! Vous incarnez un \xE9l\xE9ctron se d\xE9pla\xE7ant
-    dans un conducteur \xE9lectrique."
+  m_Text: "Bienvenue dans Super COLD!\r\n\r\n\r\nDans ce jeu, vous allez faire l'exp\xE9rience
+    de la r\xE9sistance \xE9lectrique et de la supraconductivit\xE9!"
 --- !u!222 &912216088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1613,7 +1616,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.08878609, g: 0.7638585, b: 0.8113208, a: 0}
+  m_BackGroundColor: {r: 0.17205411, g: 0.21127443, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1882,6 +1885,8 @@ GameObject:
   - component: {fileID: 1199867935}
   - component: {fileID: 1199867936}
   - component: {fileID: 1199867937}
+  - component: {fileID: 1199867939}
+  - component: {fileID: 1199867938}
   m_Layer: 0
   m_Name: electron
   m_TagString: Untagged
@@ -1914,6 +1919,7 @@ MonoBehaviour:
   rotationHeight: 7
   isSuperCold: 0
   hasLost: 0
+  isInsideWall: 0
   isShowingCanvas: 1
   obstacleSpawner: {fileID: 113119429}
   supercoldCanvas: {fileID: 1774355663}
@@ -2126,6 +2132,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1199867938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199867929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9310778, y: 0.1591838, z: 1}
+  m_Center: {x: -0.65888864, y: -0.08919087, z: 0}
+--- !u!65 &1199867939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199867929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2393708, y: 0.22686148, z: 0.76837856}
+  m_Center: {x: 0.6196846, y: -0.072078705, z: 0.11581072}
 --- !u!1 &1205890565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,8 +2194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025024, y: -0.00012751}
-  m_SizeDelta: {x: 1782.5, y: 1035}
+  m_AnchoredPosition: {x: -1.8697, y: -1.8722}
+  m_SizeDelta: {x: 2294.2195, y: 1003.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205890567
 MonoBehaviour:
@@ -2237,8 +2269,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1167.5261, y: 448.1768}
+  m_AnchoredPosition: {x: 12.481, y: 106.0881}
+  m_SizeDelta: {x: 1623.0808, y: 660.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206861195
 MonoBehaviour:
@@ -2262,7 +2294,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 72
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -2273,9 +2305,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Si la temp\xE9rature baiss assez, le mat\xE9riau devient supraconducteur
-    et n'a plus aucune r\xE9sistivit\xE9 \xE9lectrique. Vous entrez en mode SUPER
-    COLD."
+  m_Text: "Vous incarnerez un \xE9lectron se d\xE9pla\xE7ant dans un m\xE9tal. \r\n\r\n\r\nVous
+    devrez \xE9viter les atomes qui vous bloquent le chemin, en appuyant sur [ESPACE]."
 --- !u!222 &1206861196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2318,8 +2349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1167.5261, y: 448.1768}
+  m_AnchoredPosition: {x: 12.481, y: 106.0881}
+  m_SizeDelta: {x: 1623.0808, y: 660.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265208978
 MonoBehaviour:
@@ -2343,7 +2374,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 79
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -2354,7 +2385,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Vous \xEAtes maintenant pr\xEAt. Appuyez sur Espace pour commencer."
+  m_Text: "En mode Super COLD, il n'y a plus d'atomes \xE0 \xE9viter. Par contre
+    il faudra utiliser [<=\U0001F814\U0001F814\U0001F814] et [=>\U0001F816] pour
+    rester sur la piste.\r\n\r\n\r\nBonne chance!"
 --- !u!222 &1265208979
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2474,8 +2507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025634766, y: 0}
-  m_SizeDelta: {x: 1782.5, y: 1035}
+  m_AnchoredPosition: {x: -1.8695, y: -1.8722}
+  m_SizeDelta: {x: 2294.2195, y: 1003.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423673771
 MonoBehaviour:
@@ -2673,8 +2706,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025634766, y: 0}
-  m_SizeDelta: {x: 1782.5, y: 1035}
+  m_AnchoredPosition: {x: -1.8695, y: -1.8722}
+  m_SizeDelta: {x: 2294.2195, y: 1003.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1535820054
 MonoBehaviour:
@@ -2748,8 +2781,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1167.5261, y: 448.1768}
+  m_AnchoredPosition: {x: 12.481, y: 106.0881}
+  m_SizeDelta: {x: 1623.0808, y: 660.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1536732415
 MonoBehaviour:
@@ -2773,7 +2806,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 73
+    m_FontSize: 57
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -2784,9 +2817,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "En ce moment l\xE0, votre but est de rester en Quantum lock. Pour ce faire,
-    changez d'orientation au bon moment en appuyant sur la touche \"left arrow key\"
-    et \"right arrow key\"."
+  m_Text: "Si vous foncez dans un atome, la temp\xE9rature du conducteur monte. \r\n\r\n\r\nAu
+    contraire, si vous \xE9vitez les atomes, la temp\xE9rature descend. Si la temp\xE9rature
+    est assez basse, vous entrez en mode Super COLD!\r\n"
 --- !u!222 &1536732416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2831,8 +2864,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025634766, y: 0}
-  m_SizeDelta: {x: 1782.5, y: 1035}
+  m_AnchoredPosition: {x: -1.8695, y: -1.8722}
+  m_SizeDelta: {x: 2294.2195, y: 1003.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543123068
 MonoBehaviour:

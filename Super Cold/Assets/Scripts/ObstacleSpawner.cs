@@ -71,7 +71,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     public bool IsInsideWalls(float z, float angle)
     {
-        int index = GetIndexFromZ((z - 100)/50f);
+        int index = GetIndexFromZ(z/50f);
         int higherAngle = Mathf.FloorToInt(angle);
         int lowerAngle = Mathf.CeilToInt(angle);
         higherAngle = mod(higherAngle, 8);

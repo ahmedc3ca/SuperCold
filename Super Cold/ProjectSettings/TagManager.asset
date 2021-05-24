@@ -6,6 +6,7 @@ TagManager:
   tags:
   - obstacle
   - floor
+  - scobstacle
   layers:
   - Default
   - TransparentFX

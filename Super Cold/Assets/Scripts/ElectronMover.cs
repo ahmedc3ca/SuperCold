@@ -28,6 +28,7 @@ public class ElectronMover : MonoBehaviour
     //GameState
     public bool isSuperCold = false;
     public bool hasLost = false;
+    public bool isInsideWall = false;
 
     //Menus Logic
     public bool isShowingCanvas = true;
@@ -42,7 +43,7 @@ public class ElectronMover : MonoBehaviour
     }
 
     private void Start() {
-
+        supercoldCanvas.SetActive(false);
         isShowingCanvas = true;
         Physics.gravity = new Vector3(0, -100, 0);
         isGrounded = true;
@@ -51,7 +52,8 @@ public class ElectronMover : MonoBehaviour
 
     public void StartGame()
     {
-        supercoldCanvas.SetActive(false);
+        
+        
         camera.GetComponent<AudioSource>().Play();
         isShowingCanvas = false;
         rb = GetComponent<Rigidbody>();
@@ -85,7 +87,7 @@ public class ElectronMover : MonoBehaviour
             RotateLeft();
         }
         //lose points
-        if (isSuperCold && obstacleSpawner.GetComponent<ObstacleSpawner>().IsInsideWalls(transform.position.z, rotationAngle))
+        if (isSuperCold && !isInsideWall)
         {
             currentTemperature += 0.1f;
         }
@@ -202,6 +204,22 @@ public class ElectronMover : MonoBehaviour
         rb.velocity = Vector3.forward * electronVelocity;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "scobstacle")
+        {
+            isInsideWall = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "scobstacle")
+        {
+            isInsideWall = false;
+        } 
+    }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "obstacle"){
