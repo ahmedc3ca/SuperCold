@@ -16,7 +16,7 @@ public class lengthController : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, start);
-        transform.localScale = new Vector3(1f, 1f, end - start);
+        transform.localScale = new Vector3(1f, 1f, (end - start) / 10f);
     }
 
     void setter(float start, float end)

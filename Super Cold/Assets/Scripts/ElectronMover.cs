@@ -16,7 +16,7 @@ public class ElectronMover : MonoBehaviour
 
     //Temperature Logic
     public float MaxTemperature = 100;
-    public float Tmax = 75;
+    public float Tmin = 25;
     public float currentTemperature;
     public TemperatureSlider temperatureSlider;
 
@@ -31,6 +31,11 @@ public class ElectronMover : MonoBehaviour
 
     //Menus Logic
     public bool isShowingCanvas = true;
+
+    //Obstacle Manager
+    public GameObject obstacleSpawner;
+
+    public GameObject supercoldCanvas;
     private void Awake()
     {
 
@@ -46,14 +51,14 @@ public class ElectronMover : MonoBehaviour
 
     public void StartGame()
     {
-
+        supercoldCanvas.SetActive(false);
         camera.GetComponent<AudioSource>().Play();
         isShowingCanvas = false;
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.forward * electronVelocity;
         rb.drag = 0f;
         //Initialize temperature logic
-        currentTemperature = 20;
+        currentTemperature = 99;
         temperatureSlider.SetMaxTemperature(MaxTemperature);
         temperatureSlider.SetTemperature(0);
         StartCoroutine("IncrementTemperature");
@@ -79,6 +84,12 @@ public class ElectronMover : MonoBehaviour
         {
             RotateLeft();
         }
+        //lose points
+        if (isSuperCold && obstacleSpawner.GetComponent<ObstacleSpawner>().IsInsideWalls(transform.position.z, rotationAngle))
+        {
+            currentTemperature += 0.1f;
+        }
+        
         //Update UI slider 
         temperatureSlider.SetTemperature(currentTemperature);
         //Detect GameState
@@ -107,7 +118,7 @@ public class ElectronMover : MonoBehaviour
 
     private void UpdateGameState()
     {
-        if (currentTemperature > Tmax)
+        if (currentTemperature < Tmin)
         {
             if (!isSuperCold)
             {
@@ -123,7 +134,7 @@ public class ElectronMover : MonoBehaviour
         }
 
 
-        if (currentTemperature == 0)
+        if (currentTemperature == 100)
         {
             ResetGame();
         }
@@ -136,17 +147,34 @@ public class ElectronMover : MonoBehaviour
 
     IEnumerator IncrementTemperature() {
         for(;;) {
-            currentTemperature += 0.1f;
+            if(currentTemperature > 0f)
+            {
+                currentTemperature -= 0.1f;
+            }
+            else
+            {
+                currentTemperature = 0;
+            }
+
             yield return new WaitForSeconds(.02f);
         }
     }
-
+    IEnumerator ShowSuperColdCanvas()
+    {
+        supercoldCanvas.SetActive(true);
+        RotateRight();
+        RotateLeft();
+        yield return new WaitForSeconds(1.5f);
+        supercoldCanvas.SetActive(false);
+    }
     private void EnterSuperCold()
     {
         transform.position += Vector3.up * 10f;
         rb.useGravity = false;
         //rb.velocity = Vector3.zero;
         isSuperCold = true;
+        StartCoroutine("ShowSuperColdCanvas");
+        obstacleSpawner.GetComponent<ObstacleSpawner>().SpawnSuperColdObstacles();
     }
 
     private void LeaveSuperCold()
@@ -154,6 +182,7 @@ public class ElectronMover : MonoBehaviour
         transform.position -= Vector3.up * 10f;
         rb.useGravity = true;
         isSuperCold = false;
+        obstacleSpawner.GetComponent<ObstacleSpawner>().SpawnNormalObstacles();
     }
 
     private void Jump()
@@ -195,6 +224,6 @@ public class ElectronMover : MonoBehaviour
     private void ResetElectron(Collision other){
             this.transform.position = other.gameObject.transform.position + Vector3.forward * 1.5f;
             rb.velocity = Vector3.forward * electronVelocity;
-            currentTemperature = Math.Max(0, currentTemperature - 10);
+            currentTemperature = Math.Min(100, currentTemperature + 10);
     }
 }
