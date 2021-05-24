@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2945910814646729690}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: scobstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

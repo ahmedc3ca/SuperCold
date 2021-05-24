@@ -11,7 +11,7 @@ public class ElectronMover : MonoBehaviour
     private Rigidbody rb;
     public float electronVelocity = 50f;
     public float electronJumpPower = 30f;
-    private bool isGrounded = false;
+    public bool isGrounded = true;
     public float jumpDrag = 0f;
 
     //Temperature Logic
@@ -37,6 +37,11 @@ public class ElectronMover : MonoBehaviour
     public GameObject obstacleSpawner;
 
     public GameObject supercoldCanvas;
+    public GameObject winCanvas;
+
+    public AudioClip music;
+    public AudioClip music_supercold;
+
     private void Awake()
     {
 
@@ -44,9 +49,11 @@ public class ElectronMover : MonoBehaviour
 
     private void Start() {
         supercoldCanvas.SetActive(false);
+        winCanvas.SetActive(false);
         isShowingCanvas = true;
         Physics.gravity = new Vector3(0, -100, 0);
         isGrounded = true;
+
 
     }
 
@@ -77,6 +84,7 @@ public class ElectronMover : MonoBehaviour
         if (Input.GetKeyDown("space") && !isSuperCold && isGrounded)
         {
             Jump();
+            rb.useGravity = true;
         }
         if(Input.GetKey(KeyCode.RightArrow) && isSuperCold)
         {
@@ -89,13 +97,24 @@ public class ElectronMover : MonoBehaviour
         //lose points
         if (isSuperCold && !isInsideWall)
         {
-            currentTemperature += 0.1f;
+            currentTemperature += 0.05f;
         }
         
         //Update UI slider 
         temperatureSlider.SetTemperature(currentTemperature);
         //Detect GameState
         UpdateGameState();
+        if(transform.position.z > 7000f)
+        {
+            WinGame();
+        }
+    }
+
+
+    private void WinGame()
+    {
+        winCanvas.SetActive(true);
+        camera.GetComponent<AudioSource>().Stop();
     }
 
     private void RotateRight()
@@ -127,7 +146,7 @@ public class ElectronMover : MonoBehaviour
                 EnterSuperCold();
             }
         }
-        else
+        else if (currentTemperature > (Tmin + 10))
         {
             if (isSuperCold)
             {
@@ -151,7 +170,7 @@ public class ElectronMover : MonoBehaviour
         for(;;) {
             if(currentTemperature > 0f)
             {
-                currentTemperature -= 0.1f;
+                currentTemperature -= 0.07f;
             }
             else
             {
@@ -171,20 +190,28 @@ public class ElectronMover : MonoBehaviour
     }
     private void EnterSuperCold()
     {
+
+        camera.GetComponent<AudioSource>().clip = music_supercold;
+        camera.GetComponent<AudioSource>().time = transform.position.z / 50f;
+        camera.GetComponent<AudioSource>().Play();
         transform.position += Vector3.up * 10f;
         rb.useGravity = false;
         //rb.velocity = Vector3.zero;
         isSuperCold = true;
-        StartCoroutine("ShowSuperColdCanvas");
+        //StartCoroutine("ShowSuperColdCanvas");
         obstacleSpawner.GetComponent<ObstacleSpawner>().SpawnSuperColdObstacles();
+        rb.velocity = Vector3.forward * electronVelocity;
     }
 
     private void LeaveSuperCold()
     {
-        transform.position -= Vector3.up * 10f;
-        rb.useGravity = true;
+        camera.GetComponent<AudioSource>().clip = music;
+        camera.GetComponent<AudioSource>().time = transform.position.z / 50f;
+        camera.GetComponent<AudioSource>().Play();
+        transform.position = new  Vector3(0f, 0.5f, transform.position.z);
         isSuperCold = false;
         obstacleSpawner.GetComponent<ObstacleSpawner>().SpawnNormalObstacles();
+        rb.velocity = Vector3.forward * electronVelocity;
     }
 
     private void Jump()
@@ -206,19 +233,17 @@ public class ElectronMover : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "scobstacle")
-        {
-            isInsideWall = true;
-        }
-
+        isInsideWall = true;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        isInsideWall = true;
+    }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "scobstacle")
-        {
-            isInsideWall = false;
-        } 
+
+        isInsideWall = false;
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -231,17 +256,26 @@ public class ElectronMover : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "floor")
+        {
+            isGrounded = true;
+        }
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject.tag == "floor")
         {
+            Debug.Log("wtff");
             isGrounded = false;
         }
     }
 
     private void ResetElectron(Collision other){
-            this.transform.position = other.gameObject.transform.position + Vector3.forward * 1.5f;
+            this.transform.position = other.gameObject.transform.position + Vector3.forward * 1.80f;
             rb.velocity = Vector3.forward * electronVelocity;
-            currentTemperature = Math.Min(100, currentTemperature + 10);
+            currentTemperature = Math.Min(100, currentTemperature + 17);
     }
 }
